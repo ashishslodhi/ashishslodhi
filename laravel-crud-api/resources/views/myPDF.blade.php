@@ -2,14 +2,44 @@
 <html>
 <head>
     <title>Hi</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Great+Vibes">
+    <link rel="stylesheet" href='http://db.onlinewebfonts.com/c/a78cfad3beb089a6ce86d4e280fa270b?family=Calibri'>
+
+    
+
     <style>
+      @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+
+      @font-face {
+    font-family: 'CalibriFont';
+    src: url({{ storage_path('fonts\Calibri Regular.ttf') }});
+    }
+
+    @font-face {
+        font-family: 'Vibes';
+        src: url("https://fonts.googleapis.com/css?family=Great+Vibes") format('truetype');
+        font-weight: normal;
+        font-style: normal;
+    }
+      body {
+        font-family: "Calibri";
+    }
+    h1 {
+      font-family: "CalibriFont";
+    }
         @page { margin: 100px 25px; }
-    header { 
+    header {
+      font-family: "Calibri";
       position: fixed;
       top: -60px; 
       left: 0px;
       right: 0px; 
-      height: 100px;  
+      height: 100px; 
+      font-size: 20px !important;
+      color: white;
+      text-align: center;
     }
     footer { 
       position: fixed; 
@@ -107,6 +137,21 @@
     padding: 5px 10px;
   }
 
+  .header-text {
+    margin: 0 !important;
+    padding: 0 !important;
+    font-size: 16px;
+  }
+
+  .header-text-red {
+    color:#b40607; 
+  }
+  .header-text-blue {
+    color: #4d5565;
+  }
+
+  
+
 </style>
 </head>
 <body>
@@ -114,13 +159,12 @@
     <table width="100%" cellpadding="10">
     <tr class="border-bottom">
       <td width="35%" align="left" style="text-align: left" class="border-bottom">
-        
-        <h3 class="bold-head text-red">Employee Exit Clearance Certificate</h3>
+        <p style="margin: -20px; padding: 0" class="header-text header-text-red">Employee Exit Clearance Certificate</p> 
       </td>
       <td width="32%" align="center" class="border-bottom">|</td>
       <td width="32%" align="right" class="border-bottom">
-        <h3 class="bold-head">XS CAD India Private Limited</h3>
-        <h3 class="bold-head text-red">ISO 9001:2015</h3>
+        <p class="header-text header-text-blue">XS CAD India Private Limited</p>
+        <p class="header-text header-text-red">ISO 9001:2015</p>
       </td>
     </tr>
   </table></header>
@@ -150,7 +194,7 @@
 </footer>
     <main>
     <div class="page-content">
-    <h1>{{ $title }}</h1>
+    <p style="font-size: 60px;">{{ $title }}</p>
     <p>{{ $content }}</p>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
     tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,

@@ -2,16 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\TestEmail;
 use App\Models\Category;
 use App\Models\Contact;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Post;
-
+use Illuminate\Support\Facades\Mail;
 
 class TestController extends Controller
 {
-    public function index() {
+    public function index()
+    {
         // get one User having a contact
         // $user = User::with('contact')->first();
         // return $user;
@@ -34,10 +36,20 @@ class TestController extends Controller
         // first post with categories
         $posts = Post::with('categories')->first();
         // attach, sync or detach categories to posts
-        $posts->categories()->attach([1,2]);
+        $posts->categories()->attach([1, 2]);
         $posts = Post::with('categories')->first();
 
         return $posts;
+    }
 
+    public function sendMail()
+    {
+        $maildata = [
+            'name' => 'Ashish Lodhi'
+        ];
+
+        Mail::to('alodhi@xscad.com')->send(new TestEmail($maildata));
+
+        dd('Mail sent successfully!');
     }
 }

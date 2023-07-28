@@ -1,8 +1,11 @@
 <?php
 
 use App\Http\Controllers\TestController;
-use App\Http\Controllers\PdfController;
+use App\Http\Controllers\UserController;
 
+use App\Http\Controllers\PdfController;
+use App\Mail\TestEmail;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,6 +23,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::get('/', [TestController::class, 'index']);
+Route::get('/users', [UserController::class, 'index']);
 
 Route::get('generate-pdf', [PdfController::class, 'generatePDF']);
+
+Route::get('/send-mail', function () {
+    $maildata = [
+        'name' => 'Ashish Lodhi'
+    ];
+    Mail::to('alodhi@xscad.com')->send(new TestEmail($maildata));
+
+    dd('Mail sent successfully!');
+});
