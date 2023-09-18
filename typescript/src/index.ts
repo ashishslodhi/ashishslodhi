@@ -1,13 +1,13 @@
 // Function
 
-// function calcTax(amount: number, month?: string, year = 2023):number {
-//     if(amount > 50_000 && month == 'april' && year < 2022){
-//         return amount * 1.3;
-//     }
-//     return 32434;
-// }
+function calcTax(amount: number, month?: string, year = 2023):number {
+    if(amount > 50_000 && month == 'april' && year < 2022){
+        return amount * 1.3;
+    }
+    return 32434;
+}
 
-// calcTax(4534, 'may', 2021);
+console.log(calcTax(4534, 'may', 2021));
 
 // Object
 
